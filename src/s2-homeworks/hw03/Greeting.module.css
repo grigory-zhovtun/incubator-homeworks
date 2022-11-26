@@ -18,9 +18,11 @@
 }
 
 .input:focus {
+    border: 2px solid #D1D1D1;
 }
 
 .errorInput {
+    border: 1px solid red;
 }
 
 .button {
@@ -42,6 +44,8 @@
 }
 
 .button:focus {
+    background: #FFFFFF;
+    color: black;
 }
 
 .button:active {
