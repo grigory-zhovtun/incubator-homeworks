@@ -17,7 +17,10 @@ export const pureAddUser = (name: string, setError: Function, setName: Function,
     }
 }
 
-export const pureOnBlur = (name: string, setError: Function) => { // если имя пустое - показать ошибку
+export const pureOnBlur = (name: string, setError: Function) => {
+    if (name.trim() === '') {
+        setError("Ошибка! Введите имя!")
+    }// если имя пустое - показать ошибку
 }
 
 export const pureOnEnter = (e: string, addUser: Function) => {
@@ -55,8 +58,8 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
         pureOnEnter(e.key, addUser)
     }
 
-    const totalUsers = 0 // need to fix
-    const lastUserName = 'some name' // need to fix
+    const totalUsers = users.length // need to fix
+    const lastUserName = users[users.length-1]?.name
 
     return (
         <Greeting
