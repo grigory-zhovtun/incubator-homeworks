@@ -6,6 +6,9 @@
     font-weight: 600;
     font-size: 14px;
     text-transform: capitalize;
+    border-radius: 7px;
+
+    transition: all 0.2s;
 }
 
 .disabled {
@@ -34,22 +37,34 @@
 }
 
 .default:hover {
+    box-shadow: 0 0 10px #0066CC;
+    letter-spacing: 5px;
 }
 
 .red:hover {
+    box-shadow: 0 0 10px #CC1439;
+    letter-spacing: 5px;
 }
 
 .secondary:hover {
+    box-shadow: 0 0 10px #CC1439;
+    letter-spacing: 5px;
 }
 
 
 .default:active {
+    font-size: 10px;
+    box-shadow: 0 0 15px black inset;
 }
 
 .secondary:active {
+    font-size: 10px;
+    box-shadow: 0 0 15px black inset;
 }
 
 .red:active {
+    font-size: 10px;
+    box-shadow: 0 0 15px black inset;
 }
 
 .button:disabled {
