@@ -10,14 +10,14 @@ export const homeWorkReducer = (state: UserType[], action: any): any => { // nee
             let sortedState: UserType[];
             if (action.payload === 'up') {
                 sortedState = state.sort((a: UserType, b: UserType) => {
-                    if (a.name < b.name) return 1;
-                    if (a.name > b.name) return -1;
+                    if (a.name > b.name) return 1;
+                    if (a.name < b.name) return -1;
                     return 0;
                 });
             } else {
                 sortedState = state.sort((a: UserType, b: UserType) => {
-                    if (a.name > b.name) return 1;
-                    if (a.name < b.name) return -1;
+                    if (a.name < b.name) return 1;
+                    if (a.name > b.name) return -1;
                     return 0;
                 });
             }
