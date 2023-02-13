@@ -22,7 +22,7 @@ const HW10 = () => {
         dispatch(loadingAC(true));
         setTimeout(() => {
             dispatch(loadingAC(false));
-        }, 3000);
+        }, 1500);
     };
 
     return (
