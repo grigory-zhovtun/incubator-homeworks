@@ -1,6 +1,8 @@
 import React from 'react'
 import {Slider, SliderProps} from '@mui/material'
 
+type SuperRangeProps = SliderProps & { onChange: (event: Event, value: number | number[]) => void }
+
 const SuperRange: React.FC<SliderProps> = (props) => {
     return (
         <Slider
