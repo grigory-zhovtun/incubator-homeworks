@@ -37,7 +37,7 @@ const HW13 = () => {
             .then((res) => {
                 setCode('Код 200!')
                 setImage(success200)
-                setInfo('')
+                setInfo('...всё ок)')
                 // дописать
                 setIsLoading(false)
             })
@@ -48,15 +48,15 @@ const HW13 = () => {
                 if (e.response?.status === 400) {
                     setText('Ошибка 500!')
                     setImage(error500)
-                    setInfo('')
+                    setInfo('500')
                 } else if (e.response?.status === 500) {
                     setText('Ошибка 400!')
                     setImage(error400)
-                    setInfo('')
+                    setInfo('400')
                 } else {
                     setText('Error')
                     setImage(errorUnknown)
-                    setInfo('')
+                    setInfo('Error')
                 }
             })
     }
