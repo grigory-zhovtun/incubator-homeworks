@@ -14,6 +14,7 @@ import errorUnknown from './images/error.svg'
 * 3 - сделать стили в соответствии с дизайном
 * */
 
+
 const HW13 = () => {
     const [code, setCode] = useState('')
     const [text, setText] = useState('')
@@ -37,22 +38,25 @@ const HW13 = () => {
             .then((res) => {
                 setCode('Код 200!')
                 setImage(success200)
-                setInfo('...всё ок)')
+                setText('...всё ок)')
                 // дописать
                 setIsLoading(false)
+                setInfo('')
             })
             .catch((e) => {
                 // дописать
                 setIsLoading(false)
 
                 if (e.response?.status === 400) {
-                    setText('Ошибка 500!')
-                    setImage(error500)
-                    setInfo('500')
-                } else if (e.response?.status === 500) {
                     setText('Ошибка 400!')
                     setImage(error400)
-                    setInfo('400')
+                    setCode('400')
+                    setInfo('')
+                } else if (e.response?.status === 500) {
+                    setText('Ошибка 500!')
+                    setImage(error500)
+                    setCode('500')
+                    setInfo('')
                 } else {
                     setText('Error')
                     setImage(errorUnknown)
