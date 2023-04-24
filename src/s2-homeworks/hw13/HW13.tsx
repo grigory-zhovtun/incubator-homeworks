@@ -26,7 +26,7 @@ const HW13 = () => {
         const url =
             x === null
                 ? 'https://xxxxxx.ccc' // имитация запроса на не корректный адрес
-                : 'https://samurai.it-incubator.io/api/3.0/homework/test'
+                : 'https://samurai.it-incubator.io/api/3.0/homework/test' // test 2 and 3 next lexxons
                 
         setCode('')
         setImage('')
@@ -42,7 +42,8 @@ const HW13 = () => {
                 setText('...всё ок)')
                 // дописать
                 setIsLoading(false)
-                setInfo('')
+                setInfo(res.data.info
+                    )
             })
             .catch((e) => {
                 // дописать
@@ -52,16 +53,16 @@ const HW13 = () => {
                     setText('Ошибка 400!')
                     setImage(error400)
                     setCode('400')
-                    setInfo('')
+                    setInfo(e.response.error400)
                 } else if (e.response?.status === 500) {
                     setText('Ошибка 500!')
                     setImage(error500)
                     setCode('500')
-                    setInfo('')
+                    setInfo(e.response.error500)
                 } else {
                     setText('Error')
                     setImage(errorUnknown)
-                    setInfo('Error')
+                    setInfo(e.response.errorUnknown)
                 }
             })
     }
