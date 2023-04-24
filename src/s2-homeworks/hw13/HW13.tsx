@@ -36,7 +36,6 @@ const HW13 = () => {
         axios
             .post(url, { success: x })
             .then((res) => {
-                console.log(res)
                 setCode('200')
                 setImage(success200)
                 setText('...всё ок)')
@@ -50,21 +49,14 @@ const HW13 = () => {
                 setInfo(e?.response?.data?.info && e.response.data.info || e.name)
 
                 setIsLoading(false)
-                console.log(e.response.data.errorText)
                 if (e.response?.status === 400) {
-
                     setImage(error400)
                     setCode('400')
-
                 } else if (e.response?.status === 500) {
-
                     setImage(error500)
                     setCode('500')
-
                 } else {
-
                     setImage(errorUnknown)
-
                 }
             })
     }
