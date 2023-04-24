@@ -46,22 +46,24 @@ const HW13 = () => {
             })
             .catch((e) => {
                 // дописать
+                setText(e?.response?.data?.errorText || e.message)
+                setInfo(e?.response?.data?.info || e.name)
                 setIsLoading(false)
                 console.log(e.response.data.errorText)
                 if (e.response?.status === 400) {
-                    setText(e.response.data.errorText)
+                   
                     setImage(error400)
                     setCode('400')
-                    setInfo(e.response.data.info)
+
                 } else if (e.response?.status === 500) {
-                    setText(e.response.data.errorText)
+                 
                     setImage(error500)
                     setCode('500')
-                    setInfo(e.response.data.info)
+                   
                 } else {
-                    setText(e.response.data.errorText)
+                   
                     setImage(errorUnknown)
-                    setInfo(e.response.data.info)
+                    
                 }
             })
     }
