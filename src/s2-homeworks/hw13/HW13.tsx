@@ -42,27 +42,27 @@ const HW13 = () => {
                 setText('...всё ок)')
                 // дописать
                 setIsLoading(false)
-                setInfo(res.data.info
-                    )
+                setInfo(res.data.info)
             })
             .catch((e) => {
                 // дописать
                 setIsLoading(false)
 
                 if (e.response?.status === 400) {
+                    console.log(e.response.error400)
                     setText('Ошибка 400!')
                     setImage(error400)
                     setCode('400')
-                    setInfo(e.response.error400)
+                    setInfo('эмитация ошибки на сервере')
                 } else if (e.response?.status === 500) {
                     setText('Ошибка 500!')
                     setImage(error500)
                     setCode('500')
-                    setInfo(e.response.error500)
+                    setInfo('Ты не отправил success в body вообще!')
                 } else {
                     setText('Error')
                     setImage(errorUnknown)
-                    setInfo(e.response.errorUnknown)
+                    setInfo('Error')
                 }
             })
     }
