@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import s2 from '../../s1-main/App.module.css'
 import s from './HW13.module.css'
 import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
@@ -27,14 +27,14 @@ const HW13 = () => {
             x === null
                 ? 'https://xxxxxx.ccc' // имитация запроса на не корректный адрес
                 : 'https://samurai.it-incubator.io/api/3.0/homework/test' // test 2 and 3 next lexxons
-                
+
         setCode('')
         setImage('')
         setText('')
         setInfo('...loading')
         setIsLoading(true)
         axios
-            .post(url, {success: x})
+            .post(url, { success: x })
             .then((res) => {
                 console.log(res)
                 setCode('200')
@@ -46,24 +46,25 @@ const HW13 = () => {
             })
             .catch((e) => {
                 // дописать
-                setText(e?.response?.data?.errorText || e.message)
-                setInfo(e?.response?.data?.info || e.name)
+                setText(e?.response?.data?.errorText && e.response.data.errorText || e.message)
+                setInfo(e?.response?.data?.info && e.response.data.info || e.name)
+
                 setIsLoading(false)
                 console.log(e.response.data.errorText)
                 if (e.response?.status === 400) {
-                   
+
                     setImage(error400)
                     setCode('400')
 
                 } else if (e.response?.status === 500) {
-                 
+
                     setImage(error500)
                     setCode('500')
-                   
+
                 } else {
-                   
+
                     setImage(errorUnknown)
-                    
+
                 }
             })
     }
@@ -114,7 +115,7 @@ const HW13 = () => {
 
                 <div className={s.responseContainer}>
                     <div className={s.imageContainer}>
-                        {image && <img src={image} className={s.image} alt="status"/>}
+                        {image && <img src={image} className={s.image} alt="status" />}
                     </div>
 
                     <div className={s.textContainer}>
