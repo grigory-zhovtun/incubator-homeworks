@@ -50,19 +50,19 @@ const HW13 = () => {
 
                 if (e.response?.status === 400) {
                     console.log(e.response.error400)
-                    setText('эмитация ошибки на сервере')
+                    setText('Ты не отправил success в body вообще!')
                     setImage(error400)
                     setCode('400')
                     setInfo(e.response.error400)
                 } else if (e.response?.status === 500) {
-                    setText('Ты не отправил success в body вообще!')
+                    setText('эмитация ошибки на сервере')
                     setImage(error500)
                     setCode('500')
                     setInfo(e.response.error500)
                 } else {
                     setText('Error')
                     setImage(errorUnknown)
-                    setInfo(e.response.error)
+                    setInfo('Error')
                 }
             })
     }
